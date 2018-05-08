@@ -399,6 +399,8 @@ int main(int argc, char** argv)
     addGeneralOption("version,V", "Show the version and exit.");
     addGeneralOption("help,h", "Show this help message and exit.\n");
 
+    po::options_description vmOptions = vmProgramOptions(c_lineWidth);
+
 
     po::options_description allowedOptions("Allowed options");
     allowedOptions.add(clientDefaultMode)
@@ -406,7 +408,7 @@ int main(int argc, char** argv)
         .add(clientMining)
         .add(clientNetworking)
         .add(importExportMode)
-        .add(vmProgramOptions(c_lineWidth))
+        .add(vmOptions)
         .add(generalOptions);
 
     po::variables_map vm;
@@ -776,7 +778,7 @@ int main(int argc, char** argv)
         AccountManager::streamWalletHelp(cout);
         cout << clientDefaultMode << clientTransacting << clientMining << clientNetworking;
         MinerCLI::streamHelp(cout);
-        cout << importExportMode << generalOptions;
+        cout << importExportMode << generalOptions << vmOptions;
         return 0;
     }
 
