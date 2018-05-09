@@ -778,7 +778,7 @@ int main(int argc, char** argv)
         AccountManager::streamWalletHelp(cout);
         cout << clientDefaultMode << clientTransacting << clientMining << clientNetworking;
         MinerCLI::streamHelp(cout);
-        cout << importExportMode << generalOptions << vmOptions;
+        cout << importExportMode << vmOptions << generalOptions;
         return 0;
     }
 
